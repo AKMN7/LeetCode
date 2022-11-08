@@ -105,6 +105,23 @@ class MyLinkedList {
         return len;
     }
 
+    reverse() {
+        if (this.head == null) return;
+
+        let currentNode = this.head;
+        let nextNode = null;
+        let prevNode = null;
+
+        while (currentNode) {
+            nextNode = currentNode.next;
+            currentNode.next = prevNode;
+            prevNode = currentNode;
+            currentNode = nextNode;
+        }
+
+        this.head = prevNode;
+    }
+
     printList() {
         let res = ""
         let node = this.head;
@@ -124,5 +141,8 @@ myLinkedtList.addAtIndex(1, 2);
 console.log(myLinkedtList.printList());
 console.log(myLinkedtList.get(1));
 myLinkedtList.deleteAtIndex(1);
+console.log(myLinkedtList.printList());
+console.log(myLinkedtList.get(1));
+myLinkedtList.reverse();
 console.log(myLinkedtList.printList());
 console.log(myLinkedtList.get(1));
