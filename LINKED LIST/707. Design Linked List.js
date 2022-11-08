@@ -106,20 +106,20 @@ class MyLinkedList {
     }
 
     reverse() {
-        if (this.head == null) return;
+        if (!this.head) return;
 
-        let currentNode = this.head;
-        let nextNode = null;
-        let prevNode = null;
+        let curr = this.head;
+        let next = null;
+        let prev = null;
 
-        while (currentNode) {
-            nextNode = currentNode.next;
-            currentNode.next = prevNode;
-            prevNode = currentNode;
-            currentNode = nextNode;
+        while (curr) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
 
-        this.head = prevNode;
+        this.head = prev;
     }
 
     printList() {
