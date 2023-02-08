@@ -1,7 +1,11 @@
 //! In order to achieve a proper Binary Search, the given array must be sorted by ASC Order.
 //! The Time Complexity of a Binary Search is -> O(logN)
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const target = 7;
+const arr = [];
+const target = 8;
+
+for (let index = 0; index <= 1024; index++) {
+	arr.push(index);
+}
 
 //! Recursive Approach
 function recusiveBinarySearch(arr, target, start, end) {
