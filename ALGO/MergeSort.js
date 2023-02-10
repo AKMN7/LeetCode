@@ -1,7 +1,7 @@
 //! The Merge Sort Algorthim has a time complexity of O(nlogN).
 //! For more understaind rewatch -> https://www.youtube.com/watch?v=Mo4vesaut8g&list=PLwXGkWDRxWcSa3ztC_eMMj9Q3l-uQD2wP
 //! Start -> 1:02:55
-//! End -> 1:28:11
+//! End -> 1:28:10
 
 function mergeSort(arr) {
 	// Already Sorted
