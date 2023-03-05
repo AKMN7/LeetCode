@@ -1,25 +1,23 @@
-function dailyTemperatures(temperatures) {
-    let result = [];
+function dailyTemperatures(temperatures, hottest = 0) {
+	const days = new Array(temperatures.length).fill(0);
 
-    for (let i = 0; i < temperatures.length; i++) {
-        let counter = 0;
+	for (let day = temperatures.length - 1; day >= 0; day--) {
+		const temperature = temperatures[day];
 
-        for (let j = i; j < temperatures.length; j++) {
+		if (temperature >= hottest) {
+			hottest = temperature;
+			continue;
+		}
 
-            if (j == temperatures.length - 1) result.push(0);
+		let dayCount = 1;
+		while (temperatures[day + dayCount] <= temperature) {
+			dayCount += days[day + dayCount];
+		}
 
-            if (temperatures[i] < temperatures[j + 1] && j != temperatures.length - 1) {
-                counter++;
-                result.push(counter);
-                break;
-            }
+		days[day] = dayCount;
+	}
 
-            counter++;
-        }
-
-    }
-
-    return result;
+	return days;
 }
 
 console.log(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]));
